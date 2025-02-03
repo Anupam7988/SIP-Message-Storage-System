@@ -1,0 +1,5 @@
+*.log
+/tmp/*
+/var/log/*
+*.swp
+.DS_Store

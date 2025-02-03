@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="Simple_Call_Auth">
+  <send>
+    <![CDATA[
+      INVITE sip:1000@192.168.29.146:5060 SIP/2.0
+      Via: SIP/2.0/UDP 192.168.29.154:5060;branch=z9hG4bK.1234567890
+      From: <sip:sipp@192.168.29.154>;tag=1234
+      To: <sip:1000@192.168.29.146>
+      Call-ID: 1234567890@192.168.29.154
+      CSeq: 1 INVITE
+      Contact: <sip:sipp@192.168.29.154:5060>
+      Max-Forwards: 70
+      Subject: Performance Test
+      Content-Type: application/sdp
+      Content-Length: 140
+
+      v=0
+      o=user1 53655765 2353687637 IN IP4 192.168.29.154
+      s=-
+      c=IN IP4 192.168.29.154
+      t=0 0
+      m=audio 6000 RTP/AVP 0
+      a=rtpmap:0 PCMU/8000
+    ]]>
+  </send>
+
+  <recv response="401" auth="true">
+    <action>
+      <ereg regexp="nonce=\"([^\"]+)\"" search_in="10" assign_to="nonce"/>
+    </action>
+  </recv>
+
+  <send>
+    <![CDATA[
+      ACK sip:1000@192.168.29.146:5060 SIP/2.0
+      Via: SIP/2.0/UDP 192.168.29.154:5060;branch=z9hG4bK.9876543210
+      From: <sip:sipp@192.168.29.154>;tag=1234
+      To: <sip:1000@192.168.29.146>
+      Call-ID: 1234567890@192.168.29.154
+      CSeq: 1 ACK
+      Contact: <sip:sipp@192.168.29.154:5060>
+      Content-Length: 0
+    ]]>
+  </send>
+
+  <send>
+    <![CDATA[
+      INVITE sip:1000@192.168.29.146:5060 SIP/2.0
+      Via: SIP/2.0/UDP 192.168.29.154:5060;branch=z9hG4bK.abcdef0123  ; New branch
+      From: <sip:sipp@192.168.29.154>;tag=1234
+      To: <sip:1000@192.168.29.146>
+      Call-ID: 1234567890@192.168.29.154
+      CSeq: 2 INVITE  ; Increment CSeq
+      Contact: <sip:sipp@192.168.29.154:5060>
+      Max-Forwards: 70
+      Subject: Performance Test
+      Content-Type: application/sdp
+      Content-Length: 140
+      [authentication username=1000 password=Welcome123]  ; Authentication here!
+      v=0
+      o=user1 53655765 2353687637 IN IP4 192.168.29.154
+      s=-
+      c=IN IP4 192.168.29.154
+      t=0 0
+      m=audio 6000 RTP/AVP 0
+      a=rtpmap:0 PCMU/8000
+    ]]>
+  </send>
+
+  <recv response="200" crlf="true"> </recv>
+
+  <send>
+    <![CDATA[
+      BYE sip:1000@192.168.29.146:5060 SIP/2.0
+      Via: SIP/2.0/UDP 192.168.29.154:5060;branch=z9hG4bK.fedcba9876
+      From: <sip:sipp@192.168.29.154>;tag=1234
+      To: <sip:1000@192.168.29.146>
+      Call-ID: 1234567890@192.168.29.154
+      CSeq: 3 BYE
+      Contact: <sip:sipp@192.168.29.154:5060>
+      Content-Length: 0
+    ]]>
+  </send>
+
+  <recv response="200" crlf="true"> </recv>
+</scenario>
