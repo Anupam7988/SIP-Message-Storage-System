@@ -12,6 +12,8 @@ The system is designed for real-time insights into SIP traffic, leveraging a mod
 
 3. **Logstash and MySQL (Server 3 - Data Processing and Storage):** This server handles the processing and persistent storage of SIP log data. Asterisk forwards logs to this server in real-time using Rsyslog, a high-performance log processing tool. Logstash then parses and structures the raw logs using Grok filters, grouping related messages by `Call-ID`. Finally, the processed data is stored in a MySQL database.
 
+![Architecture Diagram](https://raw.githubusercontent.com/Anupam7988/SIP-Message-Storage-System/main/architecture.png)
+
 ## Data Flow and Processing
 
 The flow of data through the system is as follows:
