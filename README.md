@@ -144,8 +144,7 @@ Detailed installation and configuration guides for each component (SIPp, Asteris
 
 4.  Once SIPp call emulation is ended, the logs will be stored in `/var/log/asterisk/pjsip`.  For example, a sample call with `Call-ID: 9-3973@127.0.1.1` will generate logs similar to the following:
 
-    ```
-    
+```sql  
 Feb  1 18:32:31 localhost asterisk[6541]: INVITE sip:1000@192.168.29.146:5060 SIP/2.0
 Feb  1 18:32:31 localhost asterisk[6541]: Via: SIP/2.0/UDP 127.0.1.1:5060;branch=z9hG4bK-3973-9-0
 Feb  1 18:32:31 localhost asterisk[6541]: From: sipp <sip:sipp@127.0.1.1:5060>;tag=3973SIPpTag009
@@ -229,8 +228,7 @@ Feb  1 18:32:31 localhost asterisk[6541]: Max-Forwards: 70
 Feb  1 18:32:31 localhost asterisk[6541]: User-Agent: Asterisk PBX 20.11.1
 Feb  1 18:32:31 localhost asterisk[6541]: Content-Length:  0
 Feb  1 18:32:31 localhost asterisk[6541]: #015
-
-    ```
+```
 
 5.  Verify log transfer to the log storage server by running `tail -f /var/log/pjsip` on both the Asterisk and log storage servers.
 
