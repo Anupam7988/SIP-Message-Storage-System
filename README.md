@@ -1,6 +1,6 @@
 # SIP-Message-Storage-System: Real-time SIP Transaction Analysis and Storage
 
-This system provides a comprehensive solution for real-time analysis and storage of SIP (Session Initiation Protocol) transaction data. It captures, processes, and stores SIP messages, and builds a database system to retrieve the sip call. 
+This system offers an integrated solution for real-time collection and storage of SIP (Session Initiation Protocol) transaction data. It efficiently captures, processes, and stores SIP messages, enabling easy retrieval of SIP call information from the database.
 
 ## System Overview
 
