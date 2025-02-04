@@ -48,7 +48,7 @@ Ensure that your firewall allows traffic on these ports. For example, using `fir
 
 ```bash
 sudo firewall-cmd --permanent --add-port={5060/udp,5060/tcp,10000-20000/udp,514/udp,514/tcp,3306/tcp} && sudo firewall-cmd --reload
-
+```
 ## Database Credentials
 
 Configure the MySQL database username and password in the Logstash configuration file (`logstash_sip_logs.conf`). Use strong and secure credentials.
