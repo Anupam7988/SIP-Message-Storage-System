@@ -239,7 +239,6 @@ Feb  1 18:32:31 localhost asterisk[6541]: #015
     ```bash
     sudo /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/sip_logs.conf
     ```
-Markdown
 
 7. **Querying the MySQL Database**
 
