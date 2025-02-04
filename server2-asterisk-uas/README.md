@@ -5,7 +5,7 @@ This guide provides step-by-step instructions for installing Asterisk 20.11.1 an
 ## Why Rsyslog?
 
 We need Rsyslog to capture and manage Asterisk logs effectively.  
-Specifically, we'll use it to facilitate live SIP call transfer from SIPp to Asterisk.  
+Specifically, we'll use it to send the SIP logs to the remote log storage server for further processing.  
 Rsyslog offers robust logging capabilities, allowing us to monitor SIP traffic and troubleshoot any issues that may arise.
 
 ## Prerequisites
