@@ -145,8 +145,91 @@ Detailed installation and configuration guides for each component (SIPp, Asteris
 4.  Once SIPp call emulation is ended, the logs will be stored in `/var/log/asterisk/pjsip`.  For example, a sample call with `Call-ID: 9-3973@127.0.1.1` will generate logs similar to the following:
 
     ```
-    Feb  1 18:32:31 localhost asterisk[6541]: INVITE sip:1000@192.168.29.146:5060 SIP/2.0
-    ... (Other log lines) ...
+    
+Feb  1 18:32:31 localhost asterisk[6541]: INVITE sip:1000@192.168.29.146:5060 SIP/2.0
+Feb  1 18:32:31 localhost asterisk[6541]: Via: SIP/2.0/UDP 127.0.1.1:5060;branch=z9hG4bK-3973-9-0
+Feb  1 18:32:31 localhost asterisk[6541]: From: sipp <sip:sipp@127.0.1.1:5060>;tag=3973SIPpTag009
+Feb  1 18:32:31 localhost asterisk[6541]: To: 1000 <sip:1000@192.168.29.146:5060>
+Feb  1 18:32:31 localhost asterisk[6541]: Call-ID: 9-3973@127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: CSeq: 1 INVITE
+Feb  1 18:32:31 localhost asterisk[6541]: Contact: sip:sipp@127.0.1.1:5060
+Feb  1 18:32:31 localhost asterisk[6541]: Max-Forwards: 70
+Feb  1 18:32:31 localhost asterisk[6541]: Subject: Performance Test
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Type: application/sdp
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Length:   129
+Feb  1 18:32:31 localhost asterisk[6541]: #015
+Feb  1 18:32:31 localhost asterisk[6541]: v=0
+Feb  1 18:32:31 localhost asterisk[6541]: o=user1 53655765 2353687637 IN IP4 127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: s=-
+Feb  1 18:32:31 localhost asterisk[6541]: c=IN IP4 127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: t=0 0
+Feb  1 18:32:31 localhost asterisk[6541]: m=audio 6000 RTP/AVP 0
+Feb  1 18:32:31 localhost asterisk[6541]: a=rtpmap:0 PCMU/8000
+
+
+Feb  1 18:32:31 localhost asterisk[6541]: SIP/2.0 100 Trying
+Feb  1 18:32:31 localhost asterisk[6541]: Via: SIP/2.0/UDP 127.0.1.1:5060;rport=5060;received=192.168.29.154;branch=z9hG4bK-397
+3-9-0
+Feb  1 18:32:31 localhost asterisk[6541]: Call-ID: 9-3973@127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: From: "sipp" <sip:sipp@127.0.1.1>;tag=3973SIPpTag009
+Feb  1 18:32:31 localhost asterisk[6541]: To: "1000" <sip:1000@192.168.29.146>
+Feb  1 18:32:31 localhost asterisk[6541]: CSeq: 1 INVITE
+Feb  1 18:32:31 localhost asterisk[6541]: Server: Asterisk PBX 20.11.1
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Length:  0
+Feb  1 18:32:31 localhost asterisk[6541]: #015
+
+
+Feb  1 18:32:31 localhost asterisk[6541]: SIP/2.0 200 OK
+Feb  1 18:32:31 localhost asterisk[6541]: Via: SIP/2.0/UDP 127.0.1.1:5060;rport=5060;received=192.168.29.154;branch=z9hG4bK-397
+3-9-0
+Feb  1 18:32:31 localhost asterisk[6541]: Call-ID: 9-3973@127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: From: "sipp" <sip:sipp@127.0.1.1>;tag=3973SIPpTag009
+Feb  1 18:32:31 localhost asterisk[6541]: To: "1000" <sip:1000@192.168.29.146>;tag=c4a3d618-664b-4984-8789-a82b0285c12e
+Feb  1 18:32:31 localhost asterisk[6541]: CSeq: 1 INVITE
+Feb  1 18:32:31 localhost asterisk[6541]: Server: Asterisk PBX 20.11.1
+Feb  1 18:32:31 localhost asterisk[6541]: Contact: <sip:192.168.29.146:5060>
+Feb  1 18:32:31 localhost asterisk[6541]: Allow: OPTIONS, REGISTER, SUBSCRIBE, NOTIFY, PUBLISH, INVITE, ACK, BYE, CANCEL, UPDATE, PRACK, INFO, MESSAGE, REFER
+Feb  1 18:32:31 localhost asterisk[6541]: Supported: 100rel, timer, replaces, norefersub
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Type: application/sdp
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Length:   183
+Feb  1 18:32:31 localhost asterisk[6541]: #015
+Feb  1 18:32:31 localhost asterisk[6541]: v=0
+Feb  1 18:32:31 localhost asterisk[6541]: o=- 53655765 2353687639 IN IP4 192.168.29.146
+Feb  1 18:32:31 localhost asterisk[6541]: s=Asterisk
+Feb  1 18:32:31 localhost asterisk[6541]: c=IN IP4 192.168.29.146
+Feb  1 18:32:31 localhost asterisk[6541]: t=0 0
+Feb  1 18:32:31 localhost asterisk[6541]: m=audio 17492 RTP/AVP 0
+Feb  1 18:32:31 localhost asterisk[6541]: a=rtpmap:0 PCMU/8000
+Feb  1 18:32:31 localhost asterisk[6541]: a=ptime:20
+Feb  1 18:32:31 localhost asterisk[6541]: a=maxptime:140
+Feb  1 18:32:31 localhost asterisk[6541]: a=sendrecv
+
+
+Feb  1 18:32:31 localhost asterisk[6541]: ACK sip:1000@192.168.29.146:5060 SIP/2.0
+Feb  1 18:32:31 localhost asterisk[6541]: Via: SIP/2.0/UDP 127.0.1.1:5060;branch=z9hG4bK-3973-9-5
+Feb  1 18:32:31 localhost asterisk[6541]: From: sipp <sip:sipp@127.0.1.1:5060>;tag=3973SIPpTag009
+Feb  1 18:32:31 localhost asterisk[6541]: To: 1000 <sip:1000@192.168.29.146:5060>;tag=c4a3d618-664b-4984-8789-a82b0285c12e
+Feb  1 18:32:31 localhost asterisk[6541]: Call-ID: 9-3973@127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: CSeq: 1 ACK
+Feb  1 18:32:31 localhost asterisk[6541]: Contact: sip:sipp@127.0.1.1:5060
+Feb  1 18:32:31 localhost asterisk[6541]: Max-Forwards: 70
+Feb  1 18:32:31 localhost asterisk[6541]: Subject: Performance Test
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Length: 0
+Feb  1 18:32:31 localhost asterisk[6541]: #015
+
+
+Feb  1 18:32:31 localhost asterisk[6541]: BYE sip:sipp@127.0.1.1:5060 SIP/2.0
+Feb  1 18:32:31 localhost asterisk[6541]: Via: SIP/2.0/UDP 127.0.0.1:5060;rport;branch=z9hG4bKPj68d17990-e3c0-4cc4-aeb1-8f5c680d7de6
+Feb  1 18:32:31 localhost asterisk[6541]: From: "1000" <sip:1000@192.168.29.146>;tag=c4a3d618-664b-4984-8789-a82b0285c12e
+Feb  1 18:32:31 localhost asterisk[6541]: To: "sipp" <sip:sipp@127.0.1.1>;tag=3973SIPpTag009
+Feb  1 18:32:31 localhost asterisk[6541]: Call-ID: 9-3973@127.0.1.1
+Feb  1 18:32:31 localhost asterisk[6541]: CSeq: 4113 BYE
+Feb  1 18:32:31 localhost asterisk[6541]: Reason: Q.850;cause=16
+Feb  1 18:32:31 localhost asterisk[6541]: Max-Forwards: 70
+Feb  1 18:32:31 localhost asterisk[6541]: User-Agent: Asterisk PBX 20.11.1
+Feb  1 18:32:31 localhost asterisk[6541]: Content-Length:  0
+Feb  1 18:32:31 localhost asterisk[6541]: #015
+
     ```
 
 5.  Verify log transfer to the log storage server by running `tail -f /var/log/pjsip` on both the Asterisk and log storage servers.
