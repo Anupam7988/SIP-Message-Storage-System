@@ -132,16 +132,9 @@ You can use them as a starting point, but please remember to adjust them accordi
 3.  **Add the following configuration to `/etc/rsyslog.d/asterisk.conf`:**
 
     ```
-    if ($program == 'asterisk') then {
-        action(type="omfile" file="/var/log/asterisk/full")
-        stop # Stop processing further rules for asterisk messages
-    }
-
-    # Log pjsip messages to a separate file
-    if ($program == 'asterisk' and $msg contains 'pjsip') then {
-        action(type="omfile" file="/var/log/asterisk/pjsip.log")
-        stop
-    }
+[modules]
+noload => chan_sip.so 
+load => chan_pjsip.so # As we intended to use PJSIP
     ```
 
 4.  **Restart Rsyslog:**
@@ -155,7 +148,12 @@ You can use them as a starting point, but please remember to adjust them accordi
     ```bash
     sudo systemctl status rsyslog
     ```
-
+6. **Configure rsyslog to send logs to the remote server (3rd server)**
+   
+    ```bash
+    *.* @@<remoteserverIP>:<port>  # Please refer rsyslog.conf
+    ```
+   
 ## Important Notes
 
 *   Refer to the official Asterisk and Rsyslog documentation for detailed information on configuration options.
