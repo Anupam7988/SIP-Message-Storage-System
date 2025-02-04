@@ -7,7 +7,6 @@ This guide provides step-by-step instructions for installing SIPp version 3.3 fr
 Before you begin, ensure you have the following prerequisites:
 
 - A Linux system (this guide assumes a Debian/Ubuntu-based distribution, but the steps can be adapted for other distributions).
-- Basic command-line knowledge.
 - Internet access to download the SIPp source code and dependencies.
 
 ## Installation
